@@ -1,0 +1,31 @@
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id            String         @id
+  name          String?
+  email         String?        @unique
+  imageUrl      String?
+  bio           String?        @db.Text
+  refreshTokens RefreshToken[]
+}
+
+model RefreshToken {
+  userId  String
+  token   String   @id // generated using nanoid
+  user    User     @relation(fields: [userId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  expires DateTime
+}
+
+model VerificationToken {
+  email   String
+  token   String   @id // generated using nanoid
+  expires DateTime
+}

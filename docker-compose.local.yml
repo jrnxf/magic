@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:13
+    ports:
+      - 5432:5432
+    restart: unless-stopped
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    env_file:
+      - ./.env
+
+
+  db_shadow:
+    image: postgres:13
+    ports:
+      - 5433:5433
+    restart: unless-stopped
+    volumes:
+      - db_shadow_data:/var/lib/postgresql/data
+    env_file:
+      - ./.env
+    command: -p 5433
+
+volumes:
+  db_data:
+  db_shadow_data:

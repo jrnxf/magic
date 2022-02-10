@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .btn-indigo {
+    @apply px-3 py-1.5 text-lg font-semibold text-white bg-indigo-600 
+    rounded-md shadow-sm outline-none
+    ring-opacity-50 ring-indigo-400
+    hover:ring
+    focus:ring;
+  }
+
+  .label {
+    @apply block mb-1 text-sm font-semibold text-gray-400;
+  }
+
+  .form-control {
+    @apply w-full px-3 py-1.5 text-lg border border-transparent rounded-md outline-none shadow-sm bg-mirage-500  
+    ring-indigo-400
+    focus:ring;
+  }
+}
