@@ -4,4 +4,4 @@
 https://www.youtube.com/watch?v=-YhExxfuZJE
 
 
-![demo](https://s8.gifyu.com/images/gheco.gif)
+![demo](https://coloradocolby.s3.amazonaws.com/gheco.gif)
